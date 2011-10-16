@@ -1,0 +1,10 @@
+safe: false
+markdown: maruku
+pygments: true
+
+exclude:
+  - *.haml
+  - *.sass
+  - .gitignore
+  - Rakefile
+  - README
