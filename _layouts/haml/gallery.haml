@@ -1,0 +1,31 @@
+\---
+\layout: base
+\js: [galleria-1.2.5.min, gallery]
+\---
+
+:javascript
+  var data = new Array();
+  {% for item in page.images %}
+  data.push({
+    name: '{{item}}',
+    thumb: '{{page.assetPath}}/thumbs/{{item}}.jpg',
+    image: '{{page.assetPath}}/small/{{item}}.jpg',
+    big: '{{page.assetPath}}/{{item}}.jpg',
+  });
+  data['a'] = 100;
+  console.log(data['{{item}}']);
+  {% endfor %}
+
+{{content}}
+
+:javascript
+  Galleria.loadTheme('/js/themes/classic/galleria.classic.min.js');
+  $("#gallery").galleria({
+    dataSource: data,
+    lightbox: true,
+    thumbCrop: true,
+    imageMargin: 50,
+    width: 800,
+    height: 600
+  });
+

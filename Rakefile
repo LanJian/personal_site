@@ -1,4 +1,4 @@
-@github_pages_repo = "~/projects/lanjian.github.com/"
+@github_pages_repo = "~/projects/lanjian.github.com"
 
 desc "Parse haml layouts"
 task :haml do
@@ -14,23 +14,33 @@ task :haml do
 end
 
 desc "Launch preview environment"
-task :default => [:haml, :clean] do
+task :default => [:clean, :haml] do
   system "jekyll --auto --server"
 end
 
 desc "Build site"
-task :build => [:haml, :clean] do |task, args|
+task :build => [:clean, :haml] do |task, args|
   system "jekyll"
 end
 
 task :clean do
   system "rm -rf _site"
+  system "rm -rf _layouts/*.html"
 end
 
 desc "Copy generated site to github Pages repo"
-task :commit do
-  system "cp -rf _site/* #{@github_pages_repo}"
+task :publish => [:build] do
+  system(%{
+    rm -rf #{@github_pages_repo}/*
+    cp -rf _site/* #{@github_pages_repo}
+    cd #{@github_pages_repo}
+    git add .
+    git add -u
+    git ci -m "site"
+    git push
+  })
   puts "copied site to #{@github_pages_repo}"
+  puts "published site to gh pages"
 end
 
 desc "Watch for layout haml changes"
