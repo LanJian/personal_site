@@ -8,16 +8,27 @@
     {% endfor %}
 
     %script{:src => "/js/jquery-1.6.4.min.js", :type => "text/javascript"}
+    %script{:src => "/js/base.js", :type => "text/javascript"}
     {% for item in page.js %}
     %script{:src => "/js/{{item}}.js", :type => "text/javascript"}
     {% endfor %}
     %title {{page.title}}
   %body
     .page
-      #nav
-        %a{:href => "/"} Home
-        %a{:href => "/gallery"} Gallery
-        %a{:href => "http://github.com/lanjian"} Github
-        %a{:href => "/aboutme"} About me
-        %a{:href => "/resume"} Resume
+      %ul#nav
+        %li
+          %a.selected{:href => "/"} Home
+        %li
+          %a{:href => "/gallery"} Gallery
+          %ul
+            %li
+              %a{:href => "/gallery"} Artwork
+            %li
+              %a{:href => "/gallery/photography.html"} Photography
+          .clear
+        %li
+          %a{:href => "http://github.com/lanjian"} Github
+        %li
+          %a{:href => "/resume"} Resume
+      .clear
       {{content}}
