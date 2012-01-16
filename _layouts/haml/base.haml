@@ -12,23 +12,25 @@
     {% for item in page.js %}
     %script{:src => "/js/{{item}}.js", :type => "text/javascript"}
     {% endfor %}
-    %title {{page.title}}
+    %title Jack Huang - {{page.title}}
   %body
     .page
+      .pageHeader
       %ul#nav
+        %li.selected
+          %a{:href => "/"} HOME
         %li
-          %a.selected{:href => "/"} Home
-        %li
-          %a{:href => "/gallery"} Gallery
+          %a{:href => "/gallery"} GALLERY
           %ul
             %li
-              %a{:href => "/gallery"} Artwork
+              %a{:href => "/gallery"} ARTWORK
             %li
-              %a{:href => "/gallery/photography.html"} Photography
+              %a{:href => "/gallery/photography.html"} PHOTOGRAPHY
           .clear
         %li
-          %a{:href => "http://github.com/lanjian"} Github
+          %a{:href => "http://github.com/lanjian"} GITHUB
         %li
-          %a{:href => "/resume"} Resume
+          %a{:href => "/resume"} RESUME
       .clear
-      {{content}}
+      .content
+        {{content}}
