@@ -16,10 +16,11 @@
   %body
     .page
       .pageHeader
+        .headerName [ JACK HUANG ]
       %ul#nav
-        %li.selected
+        %li.selected#nav_home
           %a{:href => "/"} HOME
-        %li
+        %li#nav_gallery
           %a{:href => "/gallery"} GALLERY
           %ul
             %li
@@ -27,9 +28,9 @@
             %li
               %a{:href => "/gallery/photography.html"} PHOTOGRAPHY
           .clear
-        %li
+        %li#nav_github
           %a{:href => "http://github.com/lanjian"} GITHUB
-        %li
+        %li#nav_resume
           %a{:href => "/resume"} RESUME
       .clear
       .content
