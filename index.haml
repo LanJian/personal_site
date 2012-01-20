@@ -1,11 +1,40 @@
 ---
 layout: base
 title: Home
-style: [portrait]
+style: [home]
+js: [home]
 ---
--##home
-  -#This is my site
+#home
+  .about
+    %h1 WELCOME!
+    %hr
+    %p Hi, my name is Jack Huang. I am a computer science student studying at the University of Waterloo. I am also doing a Fine Arts minor. I am very interested in game development. Getting to know both computer science and fine arts gives me insight and experience in the two very different yet essential areas of making games.
+    %p Thanks for visiting my site. While you are here, feel free to check out my projects and portfolio!
 
-#portrait
-  %iframe{:width => "640", :height => "480", :src => "http://www.youtube.com/embed/d2k4OLaeWf0?rel=0",
-    :frameborder => "0", :allowfullscreen => 'allowfullscreen'}
+  .contact
+    %h1 Contact Me
+    %p
+      %b Email: 
+      %a{:href => 'mailto:jackhxs@gmail.com'} jackhxs@gmail.com
+    %p
+      %b Github: 
+      %a{:href => 'http://github.com/lanjian'} LanJian
+    %p
+      %b LinkedIn: 
+      %a{:href => 'http://ca.linkedin.com/pub/jack-huang/17/433/759'} Jack Huang
+
+  .clear
+
+  .panels
+    .leftPanel
+      .portfolioImg
+        .overlay
+          %a{:href => '/gallery'}
+          %h2 PORTFOLIO
+
+    .rightPanel
+      .projectsImg
+        .overlay 
+          %a{:href => 'http://github.com/lanjian'}
+          %h2 PROJECTS
+

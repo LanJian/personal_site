@@ -11,9 +11,8 @@
     thumb: '{{page.assetPath}}/thumbs/{{item}}.jpg',
     image: '{{page.assetPath}}/small/{{item}}.jpg',
     big: '{{page.assetPath}}/{{item}}.jpg',
+    layerFollow: true
   });
-  data['a'] = 100;
-  console.log(data['{{item}}']);
   {% endfor %}
 
 {{content}}
@@ -27,6 +26,7 @@
     imageMargin: 50,
     width: 940,
     height: 600,
-    background: 'white'
+    background: 'white',
+    transition: 'fadeslide'
   });
 
