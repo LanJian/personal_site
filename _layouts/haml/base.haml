@@ -7,6 +7,13 @@
     %link{:rel => "stylesheet", :href => "/style/{{item}}.css", :type => "text/css"}
     {% endfor %}
 
+    %script{:src => "/js/jquery-1.6.4.min.js", :type => "text/javascript"}
+    %script{:src => "/js/base.js", :type => "text/javascript"}
+    {% for item in page.js %}
+    %script{:src => "/js/{{item}}.js", :type => "text/javascript"}
+    {% endfor %}
+    %title Jack Huang - {{page.title}}
+
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-28709107-1']);
@@ -18,12 +25,6 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
-    %script{:src => "/js/jquery-1.6.4.min.js", :type => "text/javascript"}
-    %script{:src => "/js/base.js", :type => "text/javascript"}
-    {% for item in page.js %}
-    %script{:src => "/js/{{item}}.js", :type => "text/javascript"}
-    {% endfor %}
-    %title Jack Huang - {{page.title}}
   %body
     .page
       .pageHeader

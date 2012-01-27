@@ -3,6 +3,11 @@ layout: base
 title: Portrait in Motion
 style: [portrait]
 ---
+:javascript
+  $(document).ready(function(){
+    $('#nav .selected').toggleClass('selected');
+    $('#nav #nav_gallery').toggleClass('selected');
+  });
 
 #portrait
   %iframe{:width => "640", :height => "480", :src => "http://www.youtube.com/embed/d2k4OLaeWf0?rel=0",
